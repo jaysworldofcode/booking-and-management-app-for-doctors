@@ -1,0 +1,23 @@
+/my_booker_frontend/.DS_Store
+/my_booker_frontend/node_modules
+/my_booker_frontend//dist
+
+
+# local env files
+/my_booker_frontend/.env.local
+/my_booker_frontend/.env.*.local
+
+# Log files
+/my_booker_frontend/npm-debug.log*
+/my_booker_frontend/yarn-debug.log*
+/my_booker_frontend/yarn-error.log*
+/my_booker_frontend/pnpm-debug.log*
+
+# Editor directories and files
+/my_booker_frontend/.idea
+/my_booker_frontend/.vscode
+/my_booker_frontend/*.suo
+/my_booker_frontend/*.ntvs*
+/my_booker_frontend/*.njsproj
+/my_booker_frontend/*.sln
+/my_booker_frontend/*.sw?

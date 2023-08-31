@@ -1,0 +1,9 @@
+export default {
+    //getters
+    GET_CLIENTS: 'clients/GET_CLIENTS',
+    GET_CLIENT_MODAL_VISIBILITY: 'clients/GET_CLIENT_MODAL_VISIBILITY',
+    GET_CLIENT_FORM_FIELDS: 'clients/GET_CLIENT_FORM_FIELDS',
+
+    //mutation
+    SET_CLIENT_MODAL_VISIBILITY: 'clients/SET_CLIENT_MODAL_VISIBILITY',
+}

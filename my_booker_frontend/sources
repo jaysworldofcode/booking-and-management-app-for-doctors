@@ -1,0 +1,5 @@
+front-end:
+    libraries_and_sources:
+        Ant Design Vue:
+            - https://1x.antdv.com/docs/vue/getting-started/
+            - https://aaronwn.github.io/vue-antd/components/calendar/

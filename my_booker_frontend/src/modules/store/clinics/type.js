@@ -1,0 +1,10 @@
+export default {
+    //getters
+    GET_MODAL_VISIBILITY: 'clinics/GET_MODAL_VISIBILITY',
+    GET_CLINICS: 'clinics/GET_CLINICS',
+    GET_MODAL_FIELD: 'clinics/GET_MODAL_FIELD',
+
+    //mutation
+    SET_MODAL_VISIBILITY: 'clinics/SET_MODAL_VISIBILITY',
+    SET_MODAL_FIELD_SINGLE_VALUE: 'clinics/SET_MODAL_FIELD_SINGLE_VALUE',
+}
