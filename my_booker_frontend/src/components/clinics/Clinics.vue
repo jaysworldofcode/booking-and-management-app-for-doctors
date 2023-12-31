@@ -16,39 +16,32 @@
                 </div>
             </a-col>
         </a-row>
-        <a-row class="mt-1r">
+        <a-row v-if="is_fetching_clinics">
+            <a-skeleton active />
+        </a-row>
+        <a-row v-else class="mt-1r">
             <a-list
-                class="demo-loadmore-list"
-                :loading="initLoading"
+                class="clinics-items-list"
                 item-layout="horizontal"
-                :data-source="list"
+                :data-source="getClinics"
             >
-                <template #loadMore>
-                <div
-                    v-if="!initLoading && !loading"
-                    :style="{ textAlign: 'center', marginTop: '12px', height: '32px', lineHeight: '32px' }"
-                >
-                    <a-button @click="onLoadMore">loading more</a-button>
-                </div>
-                </template>
-                <template #renderItem="{ item }">
-                <a-list-item>
-                    <template #actions>
-                    <a key="list-loadmore-edit">edit</a>
-                    <a key="list-loadmore-more">more</a>
-                    </template>
-                    <a-skeleton avatar :title="false" :loading="!!item.loading" active>
+                <a-list-item slot="renderItem" slot-scope="item">
+                        <a-button slot="actions">
+                            Edit
+                        </a-button>
+                        <a-button slot="actions" type="danger">
+                            Delete
+                        </a-button>
                     <a-list-item-meta
-                        description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                        :description="item.description"
                     >
-                        <template #title>
-                            <a href="https://www.antdv.com/">{{ item.name.last }}</a>
-                        </template>
+                        <a slot="title" href="https://www.antdv.com/" class="font-weight-bold">{{ item.name }}</a>
+                        <a-avatar
+                        slot="avatar"
+                        src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                        />
                     </a-list-item-meta>
-                    <div>content</div>
-                    </a-skeleton>
                 </a-list-item>
-                </template>
             </a-list>
         </a-row>
         <ClinicModal :title="'Create New Clinic'" />
@@ -70,7 +63,8 @@
         },
         computed: {
             ...mapGetters({
-                getClinics: clinics_types.GET_CLINICS
+                getClinics: clinics_types.GET_CLINICS,
+                is_fetching_clinics: clinics_types.GET_FETCHING_CLINICS_STATUS
             }),
         },
         methods: {
@@ -80,11 +74,14 @@
             showModal() {
                 this.setModalVisibility(true);
             },
+        },
+        created(){
+            this.$store.dispatch(clinics_types.FETCH_CLINICS)
         }
     }
 </script>
 <style scoped>
-    .demo-loadmore-list {
-    min-height: 350px;
+    .clinics-items-list {
+        text-align: left;
     }
 </style>

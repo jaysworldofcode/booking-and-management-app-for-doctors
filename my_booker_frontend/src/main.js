@@ -5,7 +5,10 @@ import store from "@/modules/store"
 import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css';
 import menus from '@/constants/menus.js'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
+Vue.use(VueAxios, axios)
 Vue.use(require('vue-moment'));
 Vue.use(VueRouter)
 const router = new VueRouter({

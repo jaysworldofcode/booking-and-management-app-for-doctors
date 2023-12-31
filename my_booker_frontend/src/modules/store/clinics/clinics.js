@@ -1,3 +1,5 @@
+import ClinicsHelper from '@/modules/helpers/db.clinics_helper.js'
+
 export default {
     namespaced: true,
     state: {
@@ -24,15 +26,33 @@ export default {
             name: null,
             date_establish: null,
             contact_number: null,
-            address: null
-        }
+            address: null,
+            email: null
+        },
+        is_fetching_clinics: true
     },
     getters: {
         GET_MODAL_VISIBILITY: state => state.modal_visibility,
         GET_CLINICS: state => state.clinics,
         GET_MODAL_FIELD: state => state.clinic_modal_field,
+        GET_FETCHING_CLINICS_STATUS: state => state.is_fetching_clinics,
     },
     actions: {
+        async FETCH_CLINICS({commit, state}){
+            state.is_fetching_clinics = true
+            const response = await new ClinicsHelper().getClinics(1)
+            state.clinics = response.data
+            state.is_fetching_clinics = false
+        },
+        CLEAR_FORM_FIELDS({commit, state}){
+            state.client_form_fields = {
+                name: null,
+                date_establish: null,
+                contact_number: null,
+                address: null,
+                email: null
+            }
+        }
     },
     mutations: {
         SET_MODAL_VISIBILITY(state, status) {

@@ -100,4 +100,8 @@ export default {
     text-align: start !important;
   }
 
+  .font-weight-bold {
+    font-weight: bold;
+  }
+
 </style>
