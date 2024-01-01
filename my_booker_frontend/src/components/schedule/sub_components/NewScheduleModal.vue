@@ -42,7 +42,7 @@
 </template>
 <script>
     import { mapGetters, mapMutations } from "vuex";
-    import schedule_types from '@/modules/store/schedules/type.js';
+    import appointment_types from '@/modules/store/appointment/type.js';
 
     export default {
         name: 'NewScheduleModal',
@@ -52,12 +52,12 @@
         },
         computed: {
             ...mapGetters({
-                getNewModalVisibility: schedule_types.GET_NEW_SCHEDULE_MODAL_VISIBILITY,
+                getNewModalVisibility: appointment_types.GET_NEW_SCHEDULE_MODAL_VISIBILITY,
             }),
         },
         methods: {
             ...mapMutations({
-                setNewScheduleModalVisibility: schedule_types.SET_NEW_SCHEDULE_MODAL_VISIBILITY
+                setNewScheduleModalVisibility: appointment_types.SET_NEW_SCHEDULE_MODAL_VISIBILITY
             }),
             onClose() {
                 this.setNewScheduleModalVisibility(false);

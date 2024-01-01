@@ -25,7 +25,7 @@
 </template>
 <script>
     import { mapGetters, mapMutations } from "vuex";
-    import schedule_types from '@/modules/store/schedules/type.js';
+    import appointment_types from '@/modules/store/appointment/type.js';
 
     export default {
         name: 'ViewScheduleModal',
@@ -35,13 +35,13 @@
         },
         computed: {
             ...mapGetters({
-                getViewScheduleList: schedule_types.GET_VIEW_SCHEDULE_LIST,
-                getScheduleModalVisibility: schedule_types.GET_VIEW_SCHEDULE_MODAL_VISIBILITY,
+                getViewScheduleList: appointment_types.GET_VIEW_SCHEDULE_LIST,
+                getScheduleModalVisibility: appointment_types.GET_VIEW_SCHEDULE_MODAL_VISIBILITY,
             }),
         },
         methods: {
             ...mapMutations({
-                setViewScheduleModalVisibility: schedule_types.SET_VIEW_SCHEDULE_MODAL_VISIBILITY
+                setViewScheduleModalVisibility: appointment_types.SET_VIEW_SCHEDULE_MODAL_VISIBILITY
             }),
             onClose() {
                 this.setViewScheduleModalVisibility(false);

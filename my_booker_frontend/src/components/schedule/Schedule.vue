@@ -43,7 +43,7 @@
 <script>
 import { mapGetters, mapMutations } from "vuex";
 import { ref } from 'vue';
-import schedule_types from '@/modules/store/schedules/type.js';
+import appointment_types from '@/modules/store/appointment/type.js';
 import ViewScheduleModal from '@/components/schedule/sub_components/ViewScheduleModal.vue';
 import NewScheduleModal from "@/components/schedule/sub_components/NewScheduleModal.vue";
 
@@ -75,13 +75,13 @@ export default {
     },
     computed: {
         ...mapGetters({
-                getViewScheduleList: schedule_types.GET_VIEW_SCHEDULE_LIST,
+                getViewScheduleList: appointment_types.GET_VIEW_SCHEDULE_LIST,
             }),
     },
     methods: {
         ...mapMutations({
-            setViewScheduleModalVisibility: schedule_types.SET_VIEW_SCHEDULE_MODAL_VISIBILITY,
-            setNewScheduleModalVisibility: schedule_types.SET_NEW_SCHEDULE_MODAL_VISIBILITY
+            setViewScheduleModalVisibility: appointment_types.SET_VIEW_SCHEDULE_MODAL_VISIBILITY,
+            setNewScheduleModalVisibility: appointment_types.SET_NEW_SCHEDULE_MODAL_VISIBILITY
         }),
         showNewScheduleModal(){
             this.setNewScheduleModalVisibility(true);

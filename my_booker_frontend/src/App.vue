@@ -113,8 +113,35 @@ export default {
     font-size: 30px;
   }
 
+  .mt-2 {
+    margin-top: 4px;
+  }
+
+  .mr-4 {
+    margin-right: 6px;
+  }
+
+  .pr-4 {
+    padding-right: 6px;
+  }
+
   .mt-4 {
     margin-top: 6px;
   }
 
+  .d-flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .h-100 {
+    height: 100% !important;
+  }
+
+  .ant-statistic-title {
+    font-weight: bold;
+  }
 </style>

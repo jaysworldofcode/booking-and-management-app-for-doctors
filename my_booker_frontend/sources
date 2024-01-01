@@ -3,3 +3,11 @@ front-end:
         Ant Design Vue:
             - https://1x.antdv.com/docs/vue/getting-started/
             - https://aaronwn.github.io/vue-antd/components/calendar/
+            - https://1x.antdv.com/components/icon/
+
+color-scheme:
+- https://colorhunt.co/palette/3d3b40525cebbfcfe7f8edff
+
+
+TODO:
+- add active/inactive status on client
