@@ -24,7 +24,12 @@
       @close="onClose"
       id="drawer-sidebar"
     >
-      <SidebarItem v-for="(menu, index) in getMenus()" :path="menu.path" :name="menu.name" :icon="menu.icon" :key="index"/>
+      <SidebarItem v-for="(menu, index) in getMenus()"
+        :path="menu.path"
+        :name="menu.name"
+        :icon="menu.icon"
+        :key="index"
+        :is_show_on_sidebar="'is_show_on_sidebar' in menu && menu.is_show_on_sidebar == false? false:true " />
     </a-drawer>
   </div>
 </template>
@@ -102,6 +107,14 @@ export default {
 
   .font-weight-bold {
     font-weight: bold;
+  }
+
+  .xl-p {
+    font-size: 30px;
+  }
+
+  .mt-4 {
+    margin-top: 6px;
   }
 
 </style>

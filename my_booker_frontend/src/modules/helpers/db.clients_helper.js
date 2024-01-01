@@ -48,6 +48,19 @@ class ClientsHelper {
 
         return data
     }
+
+    async getClientData(id){
+        var data = null
+
+        await axios({
+            method: "get",
+            url: process.env.VUE_APP_ROOT_API+'clients/'+id,
+        })
+        .then(res => data = res.data)
+        .catch(err => false);
+
+        return data
+    }
 }
 
 export default ClientsHelper

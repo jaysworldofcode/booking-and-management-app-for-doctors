@@ -31,7 +31,7 @@
                 <a-button slot="actions" type="danger" @click="deleteClient(item.id)">
                     Delete
                 </a-button>
-                <a-button slot="actions" type="dashed">
+                <a-button slot="actions" type="dashed" @click="viewClient(item.id)">
                     View Client
                 </a-button>
             <a-list-item-meta
@@ -99,6 +99,11 @@ export default {
             this.$store.dispatch(client_types.FETCH_FILTERED_CLIENTS, {
                 name: this.search_client
             })
+        },
+        viewClient(id){
+            this.$router.push('/client_details?'+(new URLSearchParams({
+                i: id
+            }).toString()))
         }
     },
     created(){

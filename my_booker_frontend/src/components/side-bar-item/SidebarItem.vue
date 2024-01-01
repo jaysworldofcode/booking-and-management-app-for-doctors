@@ -1,5 +1,5 @@
 <template>
-    <div class="side-bar-item" @click="visit">
+    <div v-if="is_show_on_sidebar" class="side-bar-item" @click="visit">
         <span class="mr-2">
             <a-icon :type="icon" />
         </span>
@@ -18,6 +18,7 @@
             'name',
             'path',
             'icon',
+            'is_show_on_sidebar'
         ],
         computed: {
         },

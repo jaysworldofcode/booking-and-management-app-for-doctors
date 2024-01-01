@@ -2,6 +2,8 @@ import Dashboard from '@/components/dashboard/Dashboard.vue'
 import Clinics from '@/components/clinics/Clinics.vue'
 import Schedule from '@/components/schedule/Schedule.vue'
 import Clients from '@/components/clients/Clients.vue'
+import Login from '@/components/login/Login.vue'
+import ClientDetails from '@/components/client_details/ClientDetails.vue'
 
 export default [
     {
@@ -57,5 +59,18 @@ export default [
         icon: 'logout',
         path: '/clinics',
         component: Clinics
+    },
+    {
+        name: 'Login',
+        icon: 'logout',
+        path: '/login',
+        component: Login
+    },
+    {
+        name: 'ClientDetails',
+        icon: 'logout',
+        path: '/client_details',
+        is_show_on_sidebar: false,
+        component: ClientDetails
     },
 ];
