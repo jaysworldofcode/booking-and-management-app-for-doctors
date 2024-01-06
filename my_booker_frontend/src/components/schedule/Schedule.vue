@@ -10,7 +10,7 @@
             </a-col>
             <a-col :span="4" type="flex" justify="end">
                 <div class="flex-row justify-content-end align-items-center">
-                    <a-button type="primary" @click="showNewScheduleModal">
+                    <a-button type="primary" @click="showNewAppointmentModal">
                         <a-icon type="plus-circle" /> Add New Schedule
                     </a-button>
                 </div>
@@ -37,7 +37,7 @@
             </template>
         </a-calendar>
         <ViewScheduleModal />
-        <NewScheduleModal />
+        <NewAppointmentModal />
     </div>
 </template>
 <script>
@@ -45,7 +45,7 @@ import { mapGetters, mapMutations } from "vuex";
 import { ref } from 'vue';
 import appointment_types from '@/modules/store/appointment/type.js';
 import ViewScheduleModal from '@/components/schedule/sub_components/ViewScheduleModal.vue';
-import NewScheduleModal from "@/components/schedule/sub_components/NewScheduleModal.vue";
+import NewAppointmentModal from "@/components/schedule/sub_components/NewAppointmentModal.vue";
 
 export default {
     name: 'Schedule',
@@ -71,20 +71,20 @@ export default {
     },
     components: {
         ViewScheduleModal,
-        NewScheduleModal,
+        NewAppointmentModal,
     },
     computed: {
         ...mapGetters({
-                getViewScheduleList: appointment_types.GET_VIEW_SCHEDULE_LIST,
-            }),
+            getViewScheduleList: appointment_types.GET_VIEW_SCHEDULE_LIST,
+        }),
     },
     methods: {
         ...mapMutations({
             setViewScheduleModalVisibility: appointment_types.SET_VIEW_SCHEDULE_MODAL_VISIBILITY,
-            setNewScheduleModalVisibility: appointment_types.SET_NEW_SCHEDULE_MODAL_VISIBILITY
+            setNewAppointmentModalVisibility: appointment_types.SET_NEW_SCHEDULE_MODAL_VISIBILITY
         }),
-        showNewScheduleModal(){
-            this.setNewScheduleModalVisibility(true);
+        showNewAppointmentModal(){
+            this.setNewAppointmentModalVisibility(true);
         },
         getListData(value) {
             let listData;

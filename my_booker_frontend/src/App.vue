@@ -106,7 +106,7 @@ export default {
   }
 
   .font-weight-bold {
-    font-weight: bold;
+    font-weight: bold !important;
   }
 
   .xl-p {
@@ -117,12 +117,32 @@ export default {
     margin-top: 4px;
   }
 
+  .ml-2 {
+    margin-left: 4px !important;
+  }
+
+  .ml-5 {
+    margin-left: 10px !important;
+  }
+
+  .mr-2 {
+    margin-right: 4px !important;
+  }
+
+  .mr-5 {
+    margin-right: 10px !important;
+  }
+
   .mr-4 {
     margin-right: 6px;
   }
 
   .pr-4 {
     padding-right: 6px;
+  }
+
+  .p-4 {
+    padding: 6px !important;
   }
 
   .mt-4 {
@@ -143,5 +163,44 @@ export default {
 
   .ant-statistic-title {
     font-weight: bold;
+  }
+
+  .ant-upload-list-picture-card .ant-upload-list-item-info::before {
+    position: absolute;
+    top: -0;
+    left: 0;
+  }
+
+  .color-scheme-3 {
+    color: #BFCFE7 !important;
+  }
+
+  .ant-comment-inner {
+    text-align: left !important;
+  }
+
+  .ant-comment-content-author  {
+    text-transform: capitalize !important;
+  }
+
+  .appointment-action-button{
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .appointment-action-button .ant-btn-circle {
+    margin-right: 10px;
+  }
+
+  .ant-list-item-meta {
+    text-align: left;
+  }
+
+  .ant-list-item-meta-title {
+    font-weight: bold !important;
+  }
+
+  .ant-alert {
+    text-align: left;
   }
 </style>

@@ -40,7 +40,7 @@ export default {
     actions: {
         async FETCH_CLINICS({commit, state}){
             state.is_fetching_clinics = true
-            const response = await new ClinicsHelper().getClinics(1)
+            const response = await new ClinicsHelper().getClinics(process.env.VUE_APP_SAMPLE_USER_ID)
             state.clinics = response.data
             state.is_fetching_clinics = false
         },

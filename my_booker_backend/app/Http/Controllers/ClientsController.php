@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Requests;
 use App\Http\Requests\ClientsPostRequest;
 use App\Models\Clients;
+use App\Models\Appointments;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class ClientsController extends Controller
 {
@@ -31,7 +33,37 @@ class ClientsController extends Controller
             ], 400);
         }
 
-        return response($clients, 200);
+        $appointment_today = Appointments::where('client_id', '=', $id)
+            ->whereDate('schedule_datetime', Carbon::today())
+            ->with('appointments_comments')
+            ->get();
+
+        $last_month_appointments = Appointments::whereMonth(
+            'schedule_datetime', '=', Carbon::now()->subMonth()->month
+        )->get();
+
+        $successfull_appointments = Appointments::where('client_id', '=', $id)
+            ->where('status', '=', '1')
+            ->get();
+
+        $cancelled_appointments = Appointments::where('client_id', '=', $id)
+            ->where('status', '=', '2')
+            ->get();
+
+        $rescheduled_appointments = Appointments::where('client_id', '=', $id)
+            ->where('status', '=', '3')
+            ->get();
+
+        return response([
+            'client'                    => $clients,
+            'appointments_today'        => $appointment_today,
+            'last_month_appointments'   => $last_month_appointments,
+            'appointments_count'      => [
+                'success'       => count($successfull_appointments),
+                'cancelled'     => count($cancelled_appointments),
+                'rescheduled'   => count($rescheduled_appointments)
+            ]
+        ], 200);
     }
 
     public function update(ClientsPostRequest $request, $id){

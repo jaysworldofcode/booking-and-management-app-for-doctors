@@ -7,10 +7,13 @@ import 'ant-design-vue/dist/antd.css';
 import menus from '@/constants/menus.js'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import LottieVuePlayer from '@lottiefiles/vue-lottie-player'
 
 Vue.use(VueAxios, axios)
-Vue.use(require('vue-moment'));
+Vue.use(require('vue-moment'))
 Vue.use(VueRouter)
+Vue.use(LottieVuePlayer)
+
 const router = new VueRouter({
   mode: 'history',
   history: true,

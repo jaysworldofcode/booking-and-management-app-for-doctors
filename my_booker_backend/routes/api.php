@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClinicsController;
 use App\Http\Controllers\ClientsController;
+use App\Http\Controllers\AppointmentsController;
+use App\Http\Controllers\AppointmentsCommentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +37,12 @@ Route::get('/clients/filter', [ClientsController::class, 'filter']);
 Route::get('/clients/{id}', [ClientsController::class, 'show']);
 Route::put('/clients/{id}', [ClientsController::class, 'update']);
 Route::delete('/clients/{id}', [ClientsController::class, 'delete']);
+
+// appointments api
+Route::post('/appointments', [AppointmentsController::class, 'store']);
+Route::get('/appointments/filter', [AppointmentsController::class, 'filter']);
+Route::put('/appointments/{id}', [AppointmentsController::class, 'updateStatus']);
+
+// appointments comment api
+Route::post('/appointments/comment', [AppointmentsCommentsController::class, 'store']);
+Route::get('/appointments/comment/{appointments_id}', [AppointmentsCommentsController::class, 'show']);

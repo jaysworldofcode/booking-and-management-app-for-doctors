@@ -223,7 +223,7 @@
                         this.$store.dispatch(client_types.FETCH_CLIENTS)
                         this.resetFields()
                         this.setModalVisibility(false)
-                        this.is_loading = true
+                        this.is_loading = false
                     }
                 });
             },

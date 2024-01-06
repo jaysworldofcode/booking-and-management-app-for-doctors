@@ -1,5 +1,5 @@
 <template>
-    <div class="field-client-details d-flex flex-col">
+    <div class="field-client-details d-flex flex-col" :style="is_remove_border? '':'border: 1px solid #F8EDFF'">
         <span class="title">{{ title }}</span>
         <span class="data-val">{{ data }}</span>
     </div>
@@ -9,7 +9,8 @@ export default {
     name: 'FieldItemDetails',
     props: [
         'title',
-        'data'
+        'data',
+        'is_remove_border'
     ],
     data() {
         return {
@@ -28,7 +29,6 @@ export default {
 <style scoped>
     .field-client-details {
         text-align: left;
-        border: 1px solid #BFCFE7;
         border-radius: 15px;
         padding: 11px
     }
