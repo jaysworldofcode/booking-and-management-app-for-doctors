@@ -7,10 +7,10 @@
       :width="500"
       @close="onClose"
     >
-        <a-list item-layout="horizontal" :data-source="getViewScheduleList">
+        <a-list item-layout="horizontal" :data-source="appointments">
             <a-list-item slot="renderItem" slot-scope="item, index">
                 <a-list-item-meta
-                    :description="item.name"
+                    :description="item.client_name"
                     :key="index"
                 >
                     <a slot="title" href="https://www.antdv.com/">{{ item.title }}</a>
@@ -29,6 +29,9 @@
 
     export default {
         name: 'ViewScheduleModal',
+        props: [
+            'appointments'
+        ],
         data() {
             return {
             }

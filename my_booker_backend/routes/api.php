@@ -6,6 +6,7 @@ use App\Http\Controllers\ClinicsController;
 use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\AppointmentsController;
 use App\Http\Controllers\AppointmentsCommentsController;
+use App\Http\Controllers\ProductCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,3 +47,10 @@ Route::put('/appointments/{id}', [AppointmentsController::class, 'updateStatus']
 // appointments comment api
 Route::post('/appointments/comment', [AppointmentsCommentsController::class, 'store']);
 Route::get('/appointments/comment/{appointments_id}', [AppointmentsCommentsController::class, 'show']);
+
+// product categories api
+Route::post('/product-categories', [ProductCategoryController::class, 'store']);
+Route::get('/product-categories/single/{id}', [ProductCategoryController::class, 'getCategory']);
+Route::delete('/product-categories/{id}', [ProductCategoryController::class, 'deleteCategory']);
+Route::put('/product-categories/{id}', [ProductCategoryController::class, 'updateCategory']);
+Route::get('/product-categories/{clinic_id}', [ProductCategoryController::class, 'getAllClinicsCategory']);

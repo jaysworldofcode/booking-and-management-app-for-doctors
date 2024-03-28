@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="no-select">
     <a-layout>
       <a-layout-header>
         <a-row type="flex" justify="space-between">
@@ -86,9 +86,13 @@ export default {
 <style>
   @import './assets/css/_drawer-sidebar.css';
   @import './assets/css/_global.css';
+  @font-face {
+    font-family: "roboto";
+    src: url("~@/assets/fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+  }
 
   #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: Roboto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;

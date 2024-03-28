@@ -4,6 +4,7 @@ import Schedule from '@/components/schedule/Schedule.vue'
 import Clients from '@/components/clients/Clients.vue'
 import Login from '@/components/login/Login.vue'
 import ClientDetails from '@/components/client_details/ClientDetails.vue'
+import Settings from '@/components/settings/Settings.vue'
 
 export default [
     {
@@ -51,8 +52,8 @@ export default [
     {
         name: 'Settings',
         icon: 'setting',
-        path: '/clinics',
-        component: Clinics
+        path: '/settings',
+        component: Settings
     },
     {
         name: 'Logout',

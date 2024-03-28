@@ -31,9 +31,26 @@ class AppointmentsController extends Controller
             if(request()->has('status') && request()->query('status')){
                 $query->where('status', '=', request()->query('status'));
             }
+
+            if(request()->has('status') && request()->query('status')){
+                $query->where('status', '=', request()->query('status'));
+            }
+
+            if(request()->has('clinic_id') && request()->query('clinic_id')){
+                $query->where('appointments.clinic_id', '=', request()->query('clinic_id'));
+            }
         })
-        ->with('appointments_comments')
-        ->orderBy('schedule_datetime')
+        ->join('clients', 'clients.id', '=', 'appointments.client_id')
+        ->select('appointments.*', 'clients.name AS client_name');
+
+
+        if(request()->has('hide_comments') && filter_var(request()->query('hide_comments'), FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE) == true){
+            // do nothing
+        }else{
+            $results = $results->with('appointments_comments');
+        }
+
+        $results = $results->orderBy('schedule_datetime')
         ->paginate(15);
 
         return response($results, 200);
